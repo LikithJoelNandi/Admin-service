@@ -36,9 +36,7 @@ node {
               //sh 'docker rmi $(docker images --filter "dangling=true" -q --no-trunc) '
               sh "docker ps"
            }
-        stage('ssh') {
-          build "ssh-admin"     
-              
+        stage ('Deploy') { steps{ sshagent(credentials : ['1cbeac72-4505-4a87-9bbe-de92a95b9217']) { sh 'ssh -o StrictHostKeyChecking=no root@10.118.169.49 uptime' sh 'ssh -v root@10.118.169.49' sh 'docker ps' } } } 
         }
       
             
