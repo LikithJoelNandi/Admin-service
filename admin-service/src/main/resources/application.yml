@@ -56,7 +56,7 @@ useSSL: false
 security.enable-csrf: false
 
 subscriberBaseUrl: https://tsp-subscriber-service.cfapps.io/api
-crossOrigin: http://localhost:4200
+crossOrigin: http://10.118.169.49:4300
 TSPMailAddress: tsp@notification.com
-notifiationBaseUrl: https://tsp-notification-service.cfapps.io/api/
+notifiationBaseUrl: http://10.118.169.49:7778/api/
 
