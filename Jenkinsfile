@@ -42,7 +42,7 @@ node {
               sh 'sshpass -p $PASSWORD scp /var/lib/jenkins/workspace/Admin-test-gsap/admin-service/target/admin-service-1.0.0-SNAPSHOT-exec.jar root@10.118.169.49:/root/Admin-service/'
               sh 'sshpass -p $PASSWORD scp /var/lib/jenkins/workspace/Admin-test-gsap/Dockerfile root@10.118.169.49:/root/Admin-service/'
               sh 'sshpass -p $PASSWORD scp /var/lib/jenkins/workspace/Admin-test-gsap/admin-service/docker.sh root@10.118.169.49:/root/Admin-service/'
-              sh 'sshpass -p $PASSWORD ssh -t root@10.118.169.49:/root/Admin-service/ | ./root/Admin-service/docker.sh'
+              sh 'sshpass -p $PASSWORD ssh root@10.118.169.49 /root/Admin-service/docker.sh'
           }
         }
       
