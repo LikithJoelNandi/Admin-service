@@ -36,9 +36,12 @@ node {
               //sh 'docker rmi $(docker images --filter "dangling=true" -q --no-trunc) '
               sh "docker ps"
            }
-        stage('ssh') {
-          build "ssh-admin"     
-              
+        stage ('Copy Artifact to Deployment Server') { 
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '1cbeac72-4505-4a87-9bbe-de92a95b9217', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+  //          sh 'sshpass -p $PASSWORD ssh -t root@10.118.169.49 | sshpass -p "password" scp user@remote-machine:/home/QA.txt /home/faadmin/'
+              sh 'sshpass -p $PASSWORD scp /var/lib/jenkins/workspace/Admin-test-gsap/admin-service/target/admin-service-1.0.0-SNAPSHOT.jar root@10.118.169.49:/root/admin-service/'
+
+          }
         }
       
             
